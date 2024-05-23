@@ -162,6 +162,7 @@ class End2End(object):
 
         # Set device and disable gradient
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = "xpu" if torch.xpu.is_available() else "cpu"
         torch.set_grad_enabled(False)
         # Disable BertModel logging checkpoint info
         tf_logger.setLevel('ERROR')
