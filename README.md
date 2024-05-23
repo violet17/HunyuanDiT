@@ -1,3 +1,5 @@
+**This fork help to enable HuanyuanDiT in Intel Core Ultra intergrated GPU and Arc A770.**
+
 <!-- ## **HunyuanDiT** -->
 
 <p align="center">
