@@ -145,6 +145,7 @@ def get_pipeline(args, vae, text_encoder, tokenizer, model, device, rank,
                                        infer_mode=infer_mode,
                                        )
 
+    embedder_t5 = embedder_t5.to(device)
     pipeline = pipeline.to(device)
 
     return pipeline, sampler
