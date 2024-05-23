@@ -13,6 +13,10 @@ def get_args(default_args=None):
     parser.add_argument("--image-size", type=int, nargs='+', default=[1024, 1024],
                         help='Image size (h, w). If a single value is provided, the image will be treated to '
                              '(value, value).')
+    parser.add_argument("--width", type=int, default=1024,
+                        help='Image size width')
+    parser.add_argument("--height", type=int, default=1024,
+                        help='Image size height')
     parser.add_argument("--infer-mode", type=str, choices=["fa", "torch", "trt"], default="torch",
                         help="Inference mode")
 
