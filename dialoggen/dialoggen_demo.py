@@ -53,7 +53,9 @@ def load_images(image_files):
 def init_dialoggen_model(model_path, model_base=None, load_4bit=False):
     model_name = get_model_name_from_path(model_path)
     tokenizer, model, image_processor, context_len = load_pretrained_model(
-        model_path, model_base, model_name, llava_type_model=True, load_4bit=load_4bit)
+        model_path, model_base, model_name, llava_type_model=True, device="cpu", load_4bit=load_4bit)
+    from ipex_llm import optimize_model
+    model = optimize_model(model).to('xpu')
     return {"tokenizer": tokenizer,
             "model": model,
             "image_processor": image_processor}
