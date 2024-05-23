@@ -119,7 +119,8 @@ def eval_model(models,
     input_ids = (
         tokenizer_image_token(prompt, models["tokenizer"], IMAGE_TOKEN_INDEX, return_tensors="pt")
         .unsqueeze(0)
-        .cuda()
+        # .cuda()
+        .to("xpu")
     )
     with torch.inference_mode():
         output_ids = models["model"].generate(
